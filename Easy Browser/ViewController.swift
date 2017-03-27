@@ -14,7 +14,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
     var webView: WKWebView!
     
     override func loadView() {
-        
         webView = WKWebView()
         webView.navigationDelegate = self // When any web page navigation happens, please tell me
         view = webView
@@ -22,7 +21,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Open", style: .plain, target: self, action: #selector(openTapped))
 
         /*let url = URL(string: "https://martinnord.me/")!
@@ -40,7 +38,6 @@ class ViewController: UIViewController, WKNavigationDelegate {
     }
     
     func openPage(action: UIAlertAction!) {
-        
         let url = URL(string: "https://" + action.title!)!
         webView.load(URLRequest(url: url))
     }
@@ -48,12 +45,5 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
